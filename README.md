@@ -52,15 +52,15 @@ Communication flow:
 ## Project Structure
 
     distributed-system-demo/
-
-    client.py
-    server_main.py
-    server_replica.py
-
-    stocks_server.txt
-    stocks_replica.txt
-
-    README.md
+    ├── client/
+    │   └── client.py
+    ├── server/
+    │   ├── server_main.py
+    │   └── server_replica.py
+    ├── data/
+    │   ├── stocks_server.txt
+    │   └── stocks_replica.txt
+    └── README.md
 
 ------------------------------------------------------------------------
 
@@ -137,19 +137,19 @@ Open **three terminals**.
 ### Start the main server
 
 ``` bash
-python server_main.py
+python server/server_main.py
 ```
 
 ### Start the replica server
 
 ``` bash
-python server_replica.py
+python server/server_replica.py
 ```
 
 ### Start the client
 
 ``` bash
-python client.py
+python client/client.py
 ```
 
 ------------------------------------------------------------------------
