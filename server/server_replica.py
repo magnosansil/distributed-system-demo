@@ -16,7 +16,7 @@ while True:
 
     if request == "GET_REPLICA":
 
-        with open("stocks_replica.txt") as f:
+        with open("data/stocks_replica.txt") as f:
             data = f.read()
 
         conn.send(data.encode())

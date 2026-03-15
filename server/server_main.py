@@ -8,13 +8,13 @@ UPDATE_LIMIT = 3
 update_count = 0
 
 def replicate():
-    shutil.copy("stocks_server.txt", "stocks_replica.txt")
+    shutil.copy("data/stocks_server.txt", "data/stocks_replica.txt")
     print("Replica synchronized!")
 
 def update_stock():
     global update_count
 
-    with open("stocks_server.txt", "r") as f:
+    with open("data/stocks_server.txt", "r") as f:
         lines = f.readlines()
 
     new_lines = []
@@ -24,7 +24,7 @@ def update_stock():
         price = float(price) + 1
         new_lines.append(f"{name} {price:.2f}\n")
 
-    with open("stocks_server.txt", "w") as f:
+    with open("data/stocks_server.txt", "w") as f:
         f.writelines(new_lines)
 
     update_count += 1
@@ -47,7 +47,7 @@ while True:
 
     if request == "GET_SERVER":
 
-        with open("stocks_server.txt") as f:
+        with open("data/stocks_server.txt") as f:
             data = f.read()
 
         conn.send(data.encode())
