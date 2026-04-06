@@ -1,6 +1,8 @@
 import socket
+from pathlib import Path
 
-HOST = "localhost"
+HOST = "0.0.0.0"
+STOCKS_REPLICA = Path(__file__).resolve().parent.parent / "data" / "stocks_replica.txt"
 PORT = 6000
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -16,7 +18,7 @@ while True:
 
     if request == "GET_REPLICA":
 
-        with open("data/stocks_replica.txt") as f:
+        with open(STOCKS_REPLICA) as f:
             data = f.read()
 
         conn.send(data.encode())
